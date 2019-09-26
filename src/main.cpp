@@ -8,6 +8,7 @@
 
 #include "log.h"
 #include "config.h"
+#include "curlwrapper.h"
 
 void printHelp(){
     std::cout << "Usage:\n";
