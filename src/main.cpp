@@ -9,6 +9,7 @@
 #include "log.h"
 #include "config.h"
 #include "curlwrapper.h"
+#include "w1wrapper.h"
 
 void printHelp(){
     std::cout << "Usage:\n";
@@ -31,7 +32,7 @@ int main(int argc, char *argv[]){
     int option_index = 0;
 	bool isDebug = false;
     std::string config_path = "./test.conf";
-    while ((opt = getopt_long(argc, argv,"h", 
+    while ((opt = getopt_long(argc, argv,"c:dh", 
                    long_options, &option_index )) != -1) 
     {
         switch(opt){
@@ -56,6 +57,7 @@ int main(int argc, char *argv[]){
 		daemon(0,0);	
 	}
 	Log *log = new Log(isDebug);
+	W1Wrapper *w1 = new W1Wrapper();
     bool running = true;
     while(running){
         

@@ -7,6 +7,7 @@ set(d2id_SRC
 	"src/log.cpp"
 	"src/config.cpp"
 	"src/curlwrapper.cpp"
+	"src/w1wrapper.cpp"
 	)
 add_executable(d2id ${d2id_SRC})
 target_link_libraries(d2id ${CURL_LIBRARIES})
