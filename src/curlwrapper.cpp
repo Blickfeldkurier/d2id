@@ -1,6 +1,8 @@
 #include "curlwrapper.h"
 
-CurlWrapper::CurlWrapper(const Config &config, const bool debug){
+CurlWrapper::CurlWrapper(Config *const config, const bool debug){
 	this->isDebug = debug;
 	this->log = new Log(debug);
+	this->host = config->getHost();
+	this->port = config->getPort();
 }

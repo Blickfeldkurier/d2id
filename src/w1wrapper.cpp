@@ -1,7 +1,12 @@
 #include "w1wrapper.h"
 
-W1Wrapper::W1Wrapper(){
+char *W1Wrapper::W1NotFoundException::what(){
+	return "Could not find One Wire Bus";
+}
 
+W1Wrapper::W1Wrapper(Config *const config, const bool debug){
+	this->isDebug = debug;
+	this->log = new Log(debug);
 }
 
 W1Wrapper::Temp W1Wrapper::getTemp(std::string device){

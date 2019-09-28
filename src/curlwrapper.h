@@ -7,9 +7,11 @@
 class CurlWrapper {
 private:
 	Log *log;
+	std::string host;
+	int port;
 	bool isDebug;
 public:
-	CurlWrapper(const Config &conf, const bool debug = false);
+	CurlWrapper(Config *const conf, const bool debug = false);
 };
 
 #endif

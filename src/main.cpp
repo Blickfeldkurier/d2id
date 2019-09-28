@@ -57,7 +57,8 @@ int main(int argc, char *argv[]){
 		daemon(0,0);	
 	}
 	Log *log = new Log(isDebug);
-	W1Wrapper *w1 = new W1Wrapper();
+    Config *conf = new Config(config_path, isDebug);
+    W1Wrapper *w1 = new W1Wrapper(conf, isDebug);
     bool running = true;
     while(running){
         
