@@ -2,6 +2,7 @@
 #define DTOID_CONFIG_H
 
 #include <string>
+#include <fstream>
 #include <iostream>
 #include <algorithm>
 #include "log.h"
@@ -14,6 +15,7 @@ private:
 	int port;
 	int sleept;
 	std::string removeWhitespace(std::string line);
+	void parseConfig(std::string line);
 public:
 	Config(std::string  file, bool debug = false);
 	std::string getHost();
