@@ -11,9 +11,10 @@ class Config {
 private:
 	bool isDebug;
 	Log *log;
-	std::string host;
-	int port;
-	int sleept;
+	std::string host = "localhost";
+	int port = 8086;
+	int sleept = 23;
+	std::string dbname = "testdb";
 	std::string removeWhitespace(std::string line);
 	void parseConfig(std::string line);
 public:
@@ -21,6 +22,7 @@ public:
 	std::string getHost();
 	int getPort();
 	int getSleepT();
+	std::string getDBName();
 };
 
 #endif

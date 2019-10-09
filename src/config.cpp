@@ -30,8 +30,8 @@ void Config::parseConfig(std::string line){
 	if(pos == std::string::npos){
 		return;
 	}
-	std::string key = line.substr(0, pos);
-	std::string token = line.substr(pos + 1, token.length());
+	std::string key = this->removeWhitespace(line.substr(0, pos));
+	std::string token = this->removeWhitespace(line.substr(pos + 1, token.length()));
 	if(key.compare("host") == 0){
 		this->log->print("Influx host: " + token);
 		this->host = token;
@@ -46,6 +46,10 @@ void Config::parseConfig(std::string line){
 		this->log->print("Sleep: " + token);
 		this->sleept = std::stoi(token);
 		return;
+	}
+	if(key.compare("dbname") == 0){
+		this->log->print("DBName: " + token);
+		this->dbname = token;
 	}
 	std::string dev_delim = ".";
 	int dev_pos = key.find(dev_delim);
@@ -63,4 +67,8 @@ int Config::getPort(){
 
 int Config::getSleepT(){
 	return this->sleept;
+}
+
+std::string Config::getDBName(){
+	return this->dbname;
 }
