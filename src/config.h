@@ -12,7 +12,7 @@ private:
 	bool isDebug;
 	Log *log;
 	std::string host = "localhost";
-	int port = 8086;
+	std::string port = "8086";
 	int sleept = 23;
 	std::string dbname = "testdb";
 	std::string removeWhitespace(std::string line);
@@ -20,7 +20,7 @@ private:
 public:
 	Config(std::string  file, bool debug = false);
 	std::string getHost();
-	int getPort();
+	std::string getPort();
 	int getSleepT();
 	std::string getDBName();
 };

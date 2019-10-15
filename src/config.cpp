@@ -39,7 +39,7 @@ void Config::parseConfig(std::string line){
 	}
 	if(key.compare("port") == 0){
 		this->log->print("Influx Port: " + token);
-		this->port = std::stoi(token);
+		this->port = token;
 		return;
 	}
 	if(key.compare("sleep") == 0){
@@ -61,7 +61,7 @@ void Config::parseConfig(std::string line){
 std::string Config::getHost(){
 	return this->host;
 }
-int Config::getPort(){
+std::string Config::getPort(){
 	return this->port;
 }
 

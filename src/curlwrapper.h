@@ -11,11 +11,17 @@ private:
 	Log *log;
 	std::string host;
 	std::string dbname;
-	int port;
+	std::string port;
+	std::string result = "";
+	bool good = true;
 	bool isDebug;
+	void checkDB();
 public:
-	std::string sendPost(std::string data);
+	bool sendPost(std::string data);
+	std::string getResult();
 	CurlWrapper(Config *const conf, const bool debug = false);
+	bool isGood();
+	~CurlWrapper();
 };
 
 #endif
